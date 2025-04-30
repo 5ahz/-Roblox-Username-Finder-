@@ -37,7 +37,7 @@ def get_random_words(min_len=3, max_len=5, amount=100):
         console.print(f"[red]⚠️ Couldn't fetch word list: {err}[/red]")
     return []
 
-#Roblox username checker
+
 def check_roblox_username(username, proxy=None):
     url = f"https://auth.roblox.com/v1/usernames/validate?request.username={username}&request.birthday=2000-01-01"
     try:
@@ -51,19 +51,19 @@ def check_roblox_username(username, proxy=None):
             working_proxies.discard(proxy)  # Remove shitty bad proxy
     return None  
 
-# Generate a random username
+
 def create_username(min_chars, max_chars, use_dict_words=False):
     length = random.randint(min_chars, max_chars)  # Pick a random length faster pls 😭
     if use_dict_words:
         word_list = get_random_words(min_len=length, max_len=length)
         return random.choice(word_list) if word_list else None  # Use word list if available
     char_pool = string.ascii_letters + string.digits + '_'
-    return ''.join(random.choices(char_pool, k=length))  # Otherwise generate a random username
+    return ''.join(random.choices(char_pool, k=length)) 
 
 
 def search_for_usernames(target_count=5, enable_proxies=True, words_mode=False, min_chars=5, max_chars=20):
     found = []
-    attempts = 0  # Track how many names we check
+    attempts = 0 
     
     progress = Progress(
         SpinnerColumn(),
